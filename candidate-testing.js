@@ -42,12 +42,28 @@ function gradeQuiz(candidateAnswers) {
 //} else {
  // console.log("Incorrect!")
 //}
-for (let i = 0; i < questions.length; i++){
-  console.log('Your Answer: ${candidateAnswers[i]]'); 
-  console.log('Correct Answer: ${correctAnswers[i]}'); 
+let score = 0; 
+for (let i = 0; i < candidateAnswers.length; i++) {
+  console.log("\nQuestion: " + questions[i] + "\nYour answer: "+ candidateAnswers[i] + "Correct answer: " + correctAnswers[i]);
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      console.log("Your answer is Correct!\n");
+      score++;
+  } else {
+      console.log("Your answer is Incorrect.\n");
+  }
 }
+  let grade = (score/questions.length) * 100;
+    //TODO 3.2 use this variable to calculate the candidates score.
+console.log('Your Score: ${grade}%');
+  if (grade >= 80) {
+    console.log("Congrats! You passed");
+  } else {
+    console.log("You failed ! Better luck next time");
+  }
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+
+
+
 
 
   return grade;
